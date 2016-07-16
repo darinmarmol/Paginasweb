@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/','page_controler@index');
 Route::get('ingresar','page_controler@ingresar');
 Route::get('mostrar','page_controler@mostrar');
-Route::get('mostrar','frontcontroller@vista');
+//Route::get('mostrar','frontcontroller@vista');
 
 Route::group(['prefix'=>'usuarios'], function(){ 
 	Route::get('vista/{id}',[
@@ -38,4 +38,8 @@ Route::group(['prefix'=>'empleados'], function(){
 	Route::get('vistaempleados/{id}',[
 		'uses'=>'page_controler@vistaempleados',
 		'as'=>'empleadosvista']);
+});
+
+Route::group(['prefix'=>'administracion'],function(){
+	route::resource('usuariosdir','usuarioscontrolador');
 });
